@@ -1,0 +1,12 @@
+A=[0 2;0 3]
+whitebg([0 1 1])
+sc=5
+
+p=pi/2
+plot(A(1,:),A(2,:))
+axis ([-sc sc -sc sc])
+
+M=[cos(p) sin(p);...
+    -sin(p) cos(p)]
+
+v
