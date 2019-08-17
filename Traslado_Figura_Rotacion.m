@@ -1,6 +1,10 @@
+function Rotador
 clear all
 clc
 close all
+figure
+axes('position',[0.25 0.35 0.50 0.50])
+uicontrol('style','slider','position',[20 20 120 20],'min',-pi,'callback',@rot)
 t=0:2*pi/4:2*pi; %Ir en los extremos de los intervalos y con el salto de valor intermedio
 
 x=cos(t)
@@ -13,11 +17,13 @@ sc=1.2
 
 axis ([-sc sc -sc sc])
 p=pi/4;
-for i=1:100
+function rot(atr,cam)
+a=get(atr,'value')
+% for i=1:100
 
-    M=[cos(p*i/100) -sin(p*i/100);...
-      sin(p*i/100) cos(p*i/100)]  %Ecuación Canonica, rota el vestor dpendido de pi
+    M=[cos(a) -sin(a);...
+      sin(a) cos(a)]  %Ecuación Canonica, rota el vestor dpendido de pi
     v=M*A;
-    pause(.015)
     set(g, 'vertices', v')
+end
 end
